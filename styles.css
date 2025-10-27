@@ -1,0 +1,1039 @@
+/* ======================================================= */
+/* =============== ESTILOS GERAIS (TODAS AS TELAS) ========= */
+/* ======================================================= */
+body {
+    font-family: 'Press Start 2P', cursive;
+    background-color: #552B1B;
+    /* <<< CORREÇÃO: Esta é a ÚNICA regra 'body' agora */
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    text-align: center;
+    overflow: hidden;
+    font-size: 15px;
+}
+
+.screen {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 90%;
+    max-width: 800px;
+    background-color: #792417;
+    border: 4px solid #000000;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 0 15px #300c07;
+    box-sizing: border-box;
+}
+
+.screen.active {
+    display: flex;
+}
+
+/* <<< CORREÇÃO 2: A regra agora IGNORA botões que são imagens >>> */
+input, select, button:not(.icon-btn):not(.arrow-btn):not(.difficulty-btn) {
+    font-family: 'Press Start 2P', cursive;
+    padding: 15px;
+    margin: 10px;
+    width: 80%;
+    border-radius: 5px;
+    border: 2px solid #000000;
+    color: gray;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    background-color: #300c07;
+}
+
+input, select {
+    color: white;
+}
+
+button:hover:not(.icon-btn):not(.arrow-btn):not(.difficulty-btn) {
+    color: white;
+    transform: translateY(-2px);
+    background-color: #50140c;
+}
+
+.setup-continue-btn2 {
+    width: auto;
+    padding-left: 30px;
+    padding-right: 30px;
+    max-width: 300px;
+}
+
+/* ======================================================= */
+/* ============= TELA DE BEM-VINDO ======================= */
+/* ======================================================= */
+#welcome-screen {
+    background-image: url('https://uploads.onecompiler.io/43rztn6g5/43zwhvr4f/Tela%20Inicial.png');
+    /* <<< CORREÇÃO: O fundo da tela inicial fica AQUI */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    /* Remove os estilos da .screen para a imagem preencher tudo */
+    background-color: transparent;
+    border: none;
+    box-shadow: none;
+    padding: 0;
+    width: 100%;
+    max-width: none;
+    height: 100vh;
+}
+
+#welcome-start-btn {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    margin-top: 40vh;
+    transition: transform 0.2s ease-in-out;
+    width: 40vh;
+    /* Você pode ajustar este valor se quiser o botão maior/menor */
+    max-width: 250px;
+    /* Ou este */
+}
+
+#welcome-start-btn img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+#welcome-start-btn:hover {
+    transform: scale(1.05);
+}
+
+/* ======================================================= */
+/* ===== TELA DE CONFIGURAÇÃO E DIFICULDADE (MUDOU!) ===== */
+/* ======================================================= */
+/* Esta regra AGORA se aplica às DUAS telas */
+#setup-screen, #difficulty-screen {
+    /* 1. DEFINE A IMAGEM DE FUNDO DA MESA */
+    /* Coloque o arquivo 'Tela de Configuração.png' na mesma pasta do CSS */
+    background-image: url('https://uploads.onecompiler.io/43rztn6g5/44249m6ez/Tela%20de%20Configura%C3%A7%C3%A3o.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    /* 2. REMOVE OS ESTILOS DA CAIXA VERMELHA (.screen) */
+    background-color: transparent;
+    border: none;
+    box-shadow: none;
+    padding: 0;
+    width: 100%;
+    max-width: none;
+    height: 100vh;
+    gap: 0;
+}
+
+/* ======================================================= */
+/* ============ CONTAINER DO CADERNO (NOVO!) ============= */
+/* ======================================================= */
+/* Este é o container invisível que posiciona o conteúdo */
+.caderno-container {
+    /* 1. Dimensionamento (pode precisar de ajuste fino) */
+    width: 40vw;
+    /* Largura relativa à tela */
+    height: 60vh;
+    /* Altura relativa à tela */
+   
+    max-width: 500px;
+    /* Limite máximo de largura */
+    max-height: 520px;
+    /* Limite máximo de altura */
+   
+    /* 2. Posição (empurra o container para cima do caderno) */
+    margin-top: 20vh;
+    /* 3. Layout interno */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    /* Espaço entre os botões/inputs */
+    padding: 20px;
+    box-sizing: border-box;
+}
+.difficulty-screen button {
+  /* 1. Dimensionamento (pode precisar de ajuste fino) */
+    width: 20vw; !important
+    /* Largura relativa à tela */
+    height: 30vh; !important
+    /* Altura relativa à tela */
+}
+
+/* Estiliza os elementos DENTRO do caderno */
+.caderno-container h2 {
+    color: #3a2e2a;
+    /* Cor de "caneta" escura */
+    font-size: 1.1rem;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+/* Inputs e Selects no caderno */
+.caderno-container input, .caderno-container select {
+    background-color: transparent;
+    /* Fundo transparente (mostra o papel) */
+    border: 3px solid #3a2e2a;
+    /* Borda escura "desenhada" */
+    color: #3a2e2a;
+    /* Texto escuro */
+    width: 85%;
+    font-size: 0.8rem;
+    padding: 12px;
+}
+
+.caderno-container input::placeholder {
+    color: #5d4037;
+    opacity: 0.7;
+}
+
+/* Opções do select (para parecerem "escritas") */
+.caderno-container select option {
+    background-color: #fdfbf5;
+    /* Cor de papel */
+    color: #3a2e2a;
+}
+
+/* Botão "Continuar" (setup-continue-btn2) */
+.caderno-container .setup-continue-btn2 {
+    background-color: #5d4037;
+    /* Cor marrom */
+    color: #fdfbf5;
+    /* Cor de texto clara (papel) */
+    border: none;
+    box-shadow: 4px 4px 0px 0px #3a2e2a;
+    /* Sombra pixelada */
+    transition: all 0.1s ease;
+    width: 75%;
+    font-size: 0.9rem;
+    margin-top: 10px;
+}
+
+.caderno-container .setup-continue-btn2:hover {
+    background-color: #795548;
+    transform: none;
+    /* Remove o transform global */
+    color: #fff;
+}
+
+.caderno-container .setup-continue-btn2:active {
+    box-shadow: none;
+    transform: translate(4px, 4px);
+}
+
+/* ======================================================= */
+/* ============= TELA DE DIFICULDADE (AJUSTE) =========== */
+/* ======================================================= */
+/* Regra antiga de #difficulty-screen foi removida e unida com #setup-screen */
+/* Ajusta os botões de imagem DENTRO do caderno */
+.caderno-container .difficulty-btn {
+    width: 80%;
+    max-width: 250px;
+    background: none;
+    border: none;
+    padding: 5px;
+    margin: 5px;
+    cursor: pointer;
+    transition: transform 0.15s ease;
+    line-height: 0;
+}
+
+.caderno-container .difficulty-btn img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.caderno-container .difficulty-btn:hover {
+    transform: scale(1.13);
+}
+
+/* ======================================================= */
+/* ============= TELA DE CENÁRIO (CORRIGIDA) =============== */
+/* ======================================================= */
+#scenario-screen {
+  background-image: url('https://uploads.onecompiler.io/43tk45a7t/442j86zt3/Amor%20em%20C%C3%B3digo%20Morse.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  box-shadow: none;
+  width: 100vw; /* Alteração: usa a largura total da janela */
+  max-width: none;
+  height: 100vh; /* Alteração: usa a altura total da janela */
+  justify-content: flex-start;
+  padding: 0;
+  gap: 30px;
+  position: relative; /* Adicionado para garantir posicionamento correto */
+}
+
+/* Barra Superior (Top Bar) */
+.top-bar {
+    margin-top: -40px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.top-bar-right {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.icon-btn {
+    background-color: transparent;
+    border: none;
+    color: transparent;
+    cursor: pointer;
+    padding: 0;
+    width: 48px;
+    height: 48px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+#scenario-menu-btn {
+    background: url('https://uploads.onecompiler.io/43tk45a7t/442gwj8u5/back%20para%20jogo%20ks.png') no-repeat center center;
+    background-size: contain;
+    border: none;
+    background-color: transparent;
+    width: 150px ;
+    height: 150px;
+    cursor: pointer;    
+    transition: transform 0.15s ease;
+    margin-right: -1000px;
+}
+#scenario-menu-btn:hover {
+    transform: scale(1.1);
+}
+
+#scenario-shop-btn {
+    background: url('https://uploads.onecompiler.io/43tk45a7t/442j86zt3/loja%20icone.png') no-repeat center center;
+    background-size: contain;
+    border: none;
+    background-color: transparent;
+    width: 60px ;
+    height: 60px;
+    cursor: pointer;    
+    transition: transform 0.15s ease;
+}
+
+#scenario-shop-btn:hover {
+    transform: scale(1.1);
+}
+
+#scenario-settings-btn {
+    background: url('https://uploads.onecompiler.io/43tk45a7t/442ggzsuk/Engrengem%20para%20jogo.png') no-repeat center center;
+    background-size: contain;
+    border: none;
+    background-color: transparent;
+    width: 100px ;
+    height: 100px;
+    cursor: pointer;    
+    transition: transform 10.15s ease;
+}
+
+#scenario-settings-btn:hover {
+    transform: rotate(2000deg) scale(1);
+}
+
+#scenario-wallet {
+    display: flex;
+    align-items: center;
+    color: #fff;
+    font-size: 1.1rem;
+    gap: 10px;
+}
+
+#wallet-icon {
+    color: transparent;
+    border: 3px solid #000;
+    border-radius: 5px;
+    width: 40px;
+    height: 25px;
+    box-shadow: 3px 3px 0px #000;
+    background-color: #ffffff;
+}
+
+/*Título da tela*/
+#scenario-screen h2 {
+    background-color: #8C5637;
+    border: 4px solid #000;
+    color: #fff;
+    padding: 15px 25px;
+    border-radius: 10px;
+    font-size: 1.3rem;
+    margin: 0;
+    outline: 4px solid #48A0C0;
+    outline-offset: 4px;
+}
+
+/* Área de Seleção (Carrossel) */
+#scenario-selection-area {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    overflow: hidden;
+    padding: 10px 0;
+}
+
+/*Setas de transição de cenário*/
+.arrow-btn {
+    background-color: transparent;
+    border: none;
+    color: transparent;
+    cursor: pointer;
+    padding: 0;
+    width: 64px;
+    height: 64px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    flex-shrink: 0;
+}
+
+#prev-scenario-btn,
+#next-scenario-btn {
+    background-color: transparent;
+    border: none;
+    width: 140px;
+    height: 140px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    cursor: pointer;
+    transition: transform 0.1s ease-in-out;
+}
+
+/* Seta esquerda */
+#prev-scenario-btn {
+    background-image: url('https://uploads.onecompiler.io/43tk45a7t/442ggzsuk/seta%20esquerda.png');
+}
+
+/* Seta direita */
+#next-scenario-btn {
+    background-image: url('https://uploads.onecompiler.io/43tk45a7t/442ggzsuk/seta%20Direita.png');
+}
+
+#prev-scenario-btn:hover,
+#next-scenario-btn:hover {
+    transform: scale(1.1);
+}
+
+
+/*Bloco marrom, bloco que está na frente*/
+#scenario-cards-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 12vh;
+    margin-right: 5vh;
+    gap: 50px;
+    flex-grow: 1;
+    min-width: 39vh;  /*Largura do elemento*/
+    min-height: 45vh; /*Altura do elemento*/
+    width: 30px;
+    height: 30px;
+}
+
+/*Bloco branco, bloco que está atrás*/
+.scenario-card {
+    margin-top: -6%;
+    background-color: transparent;
+    border: none;
+    border-radius: 20px;
+    padding: 20px;
+    width: 33vh; /*Largura do elemento*/
+    height: 43vh; /*Altura do elemento*/
+    max-height: 100vh;
+    max-width: 100vh;
+    cursor: pointer;
+    transition: all 0.1s ease-out;
+    flex-shrink: 0;
+    box-sizing: border-box;
+}
+
+.scenario-card:hover {
+    transform: translate(5px, 5px);
+}
+
+.scenario-image {
+    width: 100%;
+    height: 250px;
+    background-color: #552B1B;
+    border: 4px solid #000;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    box-shadow: 5px 5px 0 #000;
+}
+
+.scenario-card h3 {
+    color: #000000;
+    font-size: 1.1rem;
+    text-align: center;
+    margin-top: 0;
+}
+
+/* ======================================================= */
+/* ============= TELA DE JOGO (CORRIGIDA) ================= */
+/* ======================================================= */
+#game-screen {
+    background-color: transparent;
+    border: none;
+    box-shadow: none;
+    width: 100%;
+    max-width: none;
+    height: 100vh;
+    padding: 0;
+    position: relative;
+    justify-content: flex-start;
+    background-size: cover;
+    background-position: center;
+}
+
+.game-layer {
+    display: none;
+}
+
+.game-layer.active {
+    display: flex;
+}
+
+#game-stats-bar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+#game-lives {
+    display: flex;
+    gap: 5px;
+}
+
+.heart-icon {
+    font-size: 2rem;
+}
+
+.game-stats-right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+#game-inventory-btn, #game-settings-btn {
+    width: 48px;
+    height: 48px;
+    background-color: rgba(0,0,0,0.5);
+}
+
+
+/* Ícone de dinheiro nas telas */
+#wallet-icon,
+#game-wallet-icon {
+    width: 94px;
+    height: 85px;
+    background-image: url('https://uploads.onecompiler.io/43tk45a7t/442gwj8u5/pixel-art-dinheiro-em-dinheiro-e-pilha-de-moedas-pixel-moedas-de-ouro-pilha-de-notas-icones-de-jogos-de-pixel_148553-765.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    border: none;
+    color: transparent;
+    background-color: transparent;
+    box-shadow: none;
+}
+
+
+/* Dentro da seção ============= TELA DE JOGO ============ */
+/* ... (Estilos para #game-screen, #game-stats-bar, etc. permanecem iguais) ... */
+
+/* === INÍCIO DA MUDANÇA: Nova Camada de Diálogo Estilizada === */
+
+/* === POSIÇÃO DO BALÃO DE FALA DOS PERSONAGENS === */
+#dialogue-layer {
+    position: absolute;
+    bottom: 40px; /* Posição fixa do fundo */
+    left: 0;
+    width: 100%;
+    height: auto;
+    justify-content: center;
+    align-items: flex-end;
+    padding: 0 5%; /* Espaçamento lateral responsivo */
+    box-sizing: border-box;
+    z-index: 5;
+}
+
+/* Caixa de Diálogo Única e Larga */
+#dialogue-box {
+    width: 85%;
+    max-width: 900px;
+    margin-bottom: 0;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 25px;
+    padding: 20px 90px 20px 30px;
+    color: #222;
+    text-align: left;
+    line-height: 1.5;
+    box-shadow: 0 0 20px rgba(0,0,0,0.4);
+    box-sizing: border-box;
+    position: relative;
+    z-index: 6;
+    margin-bottom: 20px; /* Espaçamento entre o balão e o botão */
+}
+
+/* Texto do Diálogo */
+#dialogue-text {
+    color: #222;
+    font-size: 0.8rem; /* Tamanho da fonte menor */
+    text-align: left;
+    margin: 0;
+    line-height: 1.5;
+}
+
+/* Botão de Avançar Diálogo */
+#dialogue-advance-btn {
+    position: absolute;
+    bottom: 20px; /* Posição fixa do fundo */
+    right: 20px;  /* Posição fixa da direita */
+    background-color: #5d4037;
+    color: #fdfbf5;
+    border: 2px solid #3a2e2a;
+    border-radius: 5px;
+    width: 150px;
+    height: 40px;
+    padding: 8px 12px;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.6rem;
+    cursor: pointer;
+    box-shadow: 3px 3px 0px #3a2e2a;
+    transition: all 0.1s ease;
+    z-index: 10;
+}
+
+/* Sprites de Diálogo */
+.dialogue-sprite {
+    position: absolute;
+    bottom: 80px; /* Posição fixa do fundo */
+    width: 100px;
+    height: 100px;
+    background-color: rgba(0, 0, 0, 0.7);
+    border: 3px solid white;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: bottom center;
+    z-index: 7;
+    display: none;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.dialogue-sprite.visible {
+    display: block;
+    opacity: 1;
+}
+
+/* Sprite da Esquerda (Jogador) */
+#dialogue-sprite-left {
+    left: 10%; /* Posição fixa da esquerda */
+}
+
+/* Sprite da Direita (NPC) */
+#dialogue-sprite-right {
+    right: 10%; /* Posição fixa da direita */
+}
+
+
+/* Caixa de Diálogo Única e Larga */
+#dialogue-box {
+    width: 85%;
+    max-width: 900px;
+    margin-bottom: 0;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 25px;
+    padding: 20px 90px 20px 30px;
+    color: #222;
+    text-align: left;
+    line-height: 1.5;
+    box-shadow: 0 0 20px rgba(0,0,0,0.4);
+    box-sizing: border-box;
+    position: relative;
+    z-index: 6;
+}
+
+/* Texto do Diálogo */
+#dialogue-text {
+    color: #222; /* Texto escuro para contraste */
+    font-size: 1rem; /* Tamanho da fonte (ajuste!) */
+    text-align: left;
+    margin: 0;
+    line-height: 1.5; /* Espaçamento entre linhas */
+}
+
+/* Botão de Avançar Diálogo */
+#dialogue-advance-btn {
+    position: absolute;
+    bottom: 10px;
+    right: 15px;
+    background-color: #5d4037; /* Marrom escuro */
+    color: #fdfbf5; /* Cor clara */
+    border: 2px solid #3a2e2a; /* Borda mais escura */
+    border-radius: 5px;
+    width: 250px;  /* Largura desejada */
+    height: 50px;  /* Altura desejada */
+    padding: 8px 12px;
+    font-family: 'Press Start 2P', cursive; /* Garante a fonte */
+    font-size: 0.8rem;
+    cursor: pointer;
+    box-shadow: 3px 3px 0px #3a2e2a;
+    transition: all 0.1s ease;
+}
+
+#dialogue-advance-btn:hover {
+    background-color: #795548;
+    color: #fff;
+    transform: none; /* Remove efeito global */
+}
+#dialogue-advance-btn:active {
+    box-shadow: none;
+    transform: translate(3px, 3px);
+}
+
+/* === FIM DA MUDANÇA === */
+
+/* A camada de pergunta continua com os estilos anteriores por enquanto */
+#question-layer { /* ... (regras antigas aqui) ... */ }
+
+#question-box-main {
+    background-color: #8C5637;
+    border: 5px solid #000;
+    border-radius: 15px;
+    width: 90%;               /* Largura responsiva */
+    height: 40%;              /* Altura*/
+    max-width: 3500px;         /* Máxima largura */
+    max-height: 350px;        /* Máxima altura */
+    padding: 6px;            /* Espaçamento interno */
+    display: flex;
+    gap: 15px;
+    box-shadow: 0px -5px 15px rgba(0,0,0,0.3);
+    box-sizing: border-box;
+    /* Removido position: absolute e outros estilos que podem causar problemas */
+    margin: 0 auto;        /* Centraliza horizontalmente */
+    min-height: 200px;     /* Altura mínima para garantir visibilidade */
+}
+
+
+#question-left-panel {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%; /* Adicionado */
+}
+
+#player-dialogue .speech-bubble {
+    text-align: left;
+}
+
+#question-layer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    justify-content: center;
+    align-items: flex-end;
+    padding-bottom: 2%;
+}
+
+#question-box-main {
+    background-color: #8C5637;
+    border: 5px solid #000;
+    border-radius: 15px;
+    width: 80%;
+    max-width: 700px;
+    padding: 15px;
+    display: flex;
+    gap: 10px;
+    box-shadow: 0px -5px 15px rgba(0,0,0,0.3);
+    box-sizing: border-box;
+    margin: 0 auto;
+    min-height: 200px;
+    height: 40%; /* Adicionado para definir altura */
+}
+
+#question-left-panel {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%; /* Adicionado */
+}
+
+#question-text {
+    color: #fff;
+    font-size: 0.7rem;
+    text-align: left;
+    margin: 0 0 15px 0;
+}
+
+#symbol-options-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 5px;
+    height: 100%;
+    width: 100%;
+}
+
+.symbol-btn {
+    background-color: #552B1B;
+    border: 4px solid #000;
+    border-radius: 10px;
+    font-size: 1rem;
+    color: #fff;
+    padding: 8px;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    white-space: normal;
+    overflow-wrap: break-word;
+    word-break: break-word;
+    hyphens: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+
+/* Remover as regras duplicadas que estavam sobrescrevendo */
+
+.symbol-btn:hover {
+    background-color: #300c07;
+    transform: none;
+}
+
+#question-right-panel {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+#question-sprite {
+    width: 80px;
+    height: 80px;
+    background-color: rgba(0,0,0,0.5);
+    border: 3px solid #fff;
+    flex-shrink: 0;
+}
+
+#emotion-bar-container {
+    background-color: #000;
+    border-radius: 10px;
+    padding: 4px;
+    height: 150px;
+    width: 30px;
+    display: flex;
+    align-items: flex-end;
+    flex-shrink: 0;
+}
+
+#emotion-bar-fill {
+    background-color: #f7e302;
+    width: 100%;
+    height: 50%;
+    border-radius: 3px;
+    transition: height 0.5s ease, background-color 0.5s ease;
+}
+
+/* ======================================================= */
+/* ================= TELA DA LOJA E ANÚNCIO ================ */
+/* ======================================================= */
+#shop-screen h2 {
+    margin-bottom: 30px;
+}
+
+.shop-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    border: 2px solid #fff;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+}
+
+.shop-item h3, .shop-item p {
+    text-align: left;
+    margin: 0 15px;
+    flex: 1;
+}
+
+.shop-item p {
+    font-size: 0.7rem;
+}
+
+.item-placeholder {
+    font-size: 2.5rem;
+}
+
+body.fade-to-black {
+    background-image: none !important;
+    background-color: #8C5637 !important;
+    transition: background-color 0.5s ease-in-out;
+}
+
+/* ======================================================= */
+/* ======== BALÃO DE FALA DO RÁDIO (NOVO!) ============= */
+/* ======================================================= */
+.radio-speech-bubble {
+    position: absolute;
+    /* Posição flutuante sobre a tela */
+    /* !!! AJUSTE AQUI !!! */
+    /* Posição aproximada do rádio (topo, direita) */
+    top: 38vh;
+    /* 20% do topo da tela */
+    left: 4vw;
+    /* 15% da direita da tela */
+    /* !!! AJUSTE AQUI !!! */
+    width: 320px;
+    background-color: #fff;
+    color: #333;
+    border: 3px solid #000;
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 5px 5px 0px #000;
+    /* Fonte normal, não-pixel, para o balão */
+    font-family: 'Press Start 2P';
+    font-size: 0.8rem;
+    text-align: left;
+    /* Animação de entrada/saída */
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+    transition: all 0.3s ease-in-out;
+    z-index: 100;
+}
+
+/* O "rabicho" do balão de fala */
+.radio-speech-bubble::after {
+    content: '';
+    position: absolute;
+}
+
+.radio-speech-bubble::before {
+    content: '';
+    position: absolute;
+    top: -14px;
+    /* MUDOU: de 'bottom' para 'top' */
+    left: 42px;
+    width: 0;
+    height: 0;
+    border: 8px solid transparent;
+    border-bottom-color: #fff;
+    /* MUDOU: de 'border-top-color' */
+    z-index: 101;
+}
+
+/* Classe que o JS vai adicionar para mostrar o balão */
+.radio-speech-bubble.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.radio-speech-bubble p {
+    margin: 0;
+    line-height: 2.2;
+}
+
+/* ======================================================= */
+/* ======== EFEITO DE TRANSIÇÃO (FADE TO BLACK) ========== */
+/* ======================================================= */
+
+#transition-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.8s ease-in-out;
+    z-index: 9999;
+}
+#transition-overlay.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* ======================================================= */
+/* ======== EFEITO DE TRANSIÇÃO E INTRO NARRADOR ========= */
+/* ======================================================= */
+
+/* Camada preta de transição */
+#transition-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.8s ease-in-out;
+    z-index: 9999;
+}
+#transition-overlay.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* Balão do apresentador */
+#presenter-bubble {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    max-width: 900px;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 25px;
+    padding: 20px 30px;
+    font-size: 1.3rem;
+    color: #222;
+    text-align: left;
+    line-height: 1.5;
+    box-shadow: 0 0 20px rgba(0,0,0,0.4);
+    opacity: 0;
+    transition: opacity 0.8s ease;
+    z-index: 10000;
+}
+#presenter-bubble.visible {
+    opacity: 1;
+}
+
