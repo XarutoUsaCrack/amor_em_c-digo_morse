@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amor em Código Morse</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="Conversa.js" defer></script>
+    <script src="script.js" defer></script>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="welcome-screen" class="screen active">
+        <button id="welcome-start-btn">
+            <img src="https://uploads.onecompiler.io/43rztn6g5/43zwhvr4f/Bot%C3%A3o%20Start.png" alt="Iniciar Jogo">
+        </button>
+    </div>
+    <div id="setup-screen" class="screen">
+        <div class="caderno-container">
+            <h2>Quem é você?</h2>
+            <input type="text" id="player-name" placeholder="Digite seu nome">
+            <select id="player-gender">
+                <option value="masculino">Masculino</option>
+                <option value="feminino">Feminino</option>
+            </select>
+            <button class="setup-continue-btn2" id="setup-continue-btn">Continuar</button>
+        </div>
+        <div class="radio-speech-bubble">
+            <p>Este é o texto da notificação!</p>
+        </div>
+    </div>
+   
+    <!--Tela de edificuldade-->
+    <div id="difficulty-screen" class="screen">
+        <div class="caderno-container">
+            <h2>Selecione a dificuldade:</h2><br>
+            <button class="difficulty-btn" data-difficulty="facil">
+                <img src="https://uploads.onecompiler.io/43rztn6g5/442dggdnu/F%C3%A1cil.png" alt="Fácil">
+            </button>
+            <button class="difficulty-btn" data-difficulty="dificil">
+                <img src="https://uploads.onecompiler.io/43rztn6g5/442dggdnu/Dif%C3%ADcil.png" alt="Difícil">
+            </button>
+            <button class="difficulty-btn" data-difficulty="impossivel">
+                <img src="https://uploads.onecompiler.io/43rztn6g5/442dggdnu/Imposs%C3%ADvel.png" alt="Impossível">
+            </button>
+        </div>
+        <div class="radio-speech-bubble">
+            <p>Este é o texto da notificação!</p>
+        </div>
+    </div>
+   
+    <!--Tela de selecionar cenário-->
+    <div id="scenario-screen" class="screen">
+        <div class="top-bar">
+            <button id="scenario-menu-btn" class="icon-btn">&lt;</button>
+            <div class="top-bar-right">
+                <button id="scenario-shop-btn" class="icon-btn">🛒</button>
+                <div id="scenario-wallet">
+                    <span>503.93</span>
+                    <span id="wallet-icon">💵</span>
+                </div>
+                <button id="scenario-settings-btn" class="icon-btn">⚙️</button>
+            </div>
+        </div>
+        <h2>ESCOLHA UM CENÁRIO:</h2>
+        <div id="scenario-selection-area">
+            <button id="prev-scenario-btn" class="arrow-btn">&lt;&lt;</button>
+            <div id="scenario-cards-container">
+            </div>
+            <button id="next-scenario-btn" class="arrow-btn">&gt;&gt;</button>
+        </div>
+    </div>
+
+    <div id="settings-screen" class="screen">
+        <h2>CONFIGURAÇÕES</h2>
+        <div class="settings-option">
+            <h3>Volume da Música</h3>
+            <input type="range" id="music-volume" min="0" max="100" value="50">
+        </div>
+        <div class="settings-option">
+            <h3>Volume dos Efeitos</h3>
+            <input type="range" id="effects-volume" min="0" max="100" value="75">
+        </div>
+        <button id="close-settings-btn">Voltar ao Jogo</button>
+    </div>
+   
+    <!--Tela de gameplay-->
+    <div id="game-screen" class="screen">
+        <div id="game-stats-bar">
+            <div id="game-lives">
+                <span class="heart-icon full">❤️</span>
+                <span class="heart-icon full">❤️</span>
+                <span class="heart-icon full">❤️</span>
+            </div>
+            <div class="game-stats-right">
+                <button id="game-inventory-btn" class="icon-btn">📖</button>
+                <div id="game-wallet">
+                    <span>503.93</span>
+                    <span id="game-wallet-icon">💵</span>
+                </div>
+                <button id="game-settings-btn" class="icon-btn">⚙️</button>
+            </div>
+        </div>
+       
+        <div id="dialogue-layer" class="game-layer active">
+
+        <div class="dialogue-sprite" id="dialogue-sprite-left" style="display: none;">
+            </div>
+        <div class="dialogue-sprite" id="dialogue-sprite-right" style="display: none;">
+            </div>
+
+        <div id="dialogue-box">
+            <p id="dialogue-text">O diálogo aparecerá aqui...</p>
+            </div>
+           
+            <button id="dialogue-advance-btn"> Avançar ▶ </button>
+
+    </div>
+   
+        <div id="question-layer" class="game-layer">
+            <div id="question-box-main">
+                <div id="question-left-panel">
+                    <p id="question-text">Inserir um pouquinho de texto...</p>
+                    <div id="symbol-options-grid">
+                        <button class="symbol-btn" data-choice="0">⚫</button>
+                        <button class="symbol-btn" data-choice="1">▲</button>
+                        <button class="symbol-btn" data-choice="2">✶</button>
+                        <button class="symbol-btn" data-choice="3">♦</button>
+                    </div>
+                </div>
+                <div id="question-right-panel">
+                    <div id="question-sprite"></div>
+                    <div id="emotion-bar-container">
+                        <div id="emotion-bar-fill"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="shop-screen" class="screen">
+        <h2>Loja de Conveniência do Relacionamento</h2>
+        <div class="shop-item">
+            <div class="item-placeholder">🍫</div>
+            <h3>Caixa de Bombons (R$ 20)</h3>
+            <p>Recupera uma vida (coração).</p>
+            <button class="buy-btn" data-item="bombons">Comprar</button>
+        </div>
+        <div class="shop-item">
+            <div class="item-placeholder">📖</div>
+            <h3>Manual de Sobrevivência (R$ 30)</h3>
+            <p>Libera uma dica para a próxima pergunta. Lembre-se: "Você sempre está errado".</p>
+            <button class="buy-btn" data-item="manual">Comprar</button>
+        </div>
+        <div class="shop-item">
+            <div class="item-placeholder">🧭</div>
+            <h3>GPS Emocional (R$ 15)</h3>
+            <p>Aumenta um pouco o tempo de resposta na próxima fase.</p>
+            <button class="buy-btn" data-item="gps">Comprar</button>
+        </div>
+        <button id="close-shop-btn">Voltar ao Jogo</button>
+    </div>
+    <div id="ad-screen" class="screen">
+        <h2>Suas vidas acabaram!</h2>
+        <p>Assista a um "anúncio" para ganhar mais uma vida.</p>
+        <div id="ad-content">
+            <p>Anúncio de afiliado ou de patrocinador apareceria aqui!</p>
+            <p>Imagine aqui um produto incrível!</p>
+        </div>
+        <button id="watch-ad-btn">Assistir (5s)</button>
+    </div>
+   
+
+<!-- Camada preta da transição -->
+<div id="transition-overlay"></div>
+
+<!-- Balão do apresentador -->
+<div id="presenter-bubble"><p></p></div>
+
+</body>
+</html>
